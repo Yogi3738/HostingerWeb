@@ -2,248 +2,221 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>YORIE HOSTING</title>
   <style>
     body {
-      margin: 0;
+      background: #111;
+      color: white;
       font-family: 'Segoe UI', sans-serif;
-      background: #0e0e0e;
-      color: #fff;
-      overflow-x: hidden;
-    }
-
-    header {
       text-align: center;
-      padding: 40px 20px 20px;
-      background: #121212;
+      margin: 0;
+      padding: 0;
     }
-
-    header img {
+    h1 {
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: bold;
+      animation: glitch 1.5s infinite;
+    }
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red, -2px -2px blue; }
+      25% { text-shadow: -2px 2px lime, 2px -2px cyan; }
+      50% { text-shadow: 2px -2px yellow, -2px 2px magenta; }
+      75% { text-shadow: -1px -1px white, 1px 1px gray; }
+      100% { text-shadow: 2px 2px red, -2px -2px blue; }
+    }
+    .photo {
       width: 120px;
       height: 120px;
-      border-radius: 50%;
       object-fit: cover;
-      border: 3px solid #fff;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin: 20px auto 10px;
     }
-
-    .glitch {
-      font-size: 36px;
-      font-weight: bold;
-      color: white;
-      position: relative;
-      display: inline-block;
+    ul {
+      list-style: none;
+      padding: 0;
     }
-
-    .glitch::before,
-    .glitch::after {
-      content: attr(data-text);
-      position: absolute;
-      left: 0;
-      width: 100%;
-      overflow: hidden;
+    li {
+      background: #222;
+      margin: 10px auto;
+      padding: 12px 18px;
+      width: 80%;
+      border-radius: 12px;
+      font-size: 15px;
+      text-align: left;
     }
-
-    .glitch::before {
-      animation: glitchTop 1s infinite linear;
-      color: #0ff;
-      top: -2px;
-    }
-
-    .glitch::after {
-      animation: glitchBottom 1s infinite linear;
-      color: #f0f;
-      top: 2px;
-    }
-
-    @keyframes glitchTop {
-      0% { clip: rect(0, 9999px, 0, 0); }
-      10% { clip: rect(0, 9999px, 5px, 0); }
-      20% { clip: rect(0, 9999px, 0, 0); }
-      30% { clip: rect(0, 9999px, 5px, 0); }
-      100% { clip: rect(0, 9999px, 0, 0); }
-    }
-
-    @keyframes glitchBottom {
-      0% { clip: rect(5px, 9999px, 0, 0); }
-      10% { clip: rect(0, 9999px, 5px, 0); }
-      20% { clip: rect(5px, 9999px, 0, 0); }
-      30% { clip: rect(0, 9999px, 5px, 0); }
-      100% { clip: rect(5px, 9999px, 0, 0); }
-    }
-
-    .product-list {
-      padding: 20px;
-    }
-
-    .product-item {
+    .payment {
       background: #1a1a1a;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 30px auto;
+      width: 85%;
+    }
+    .qris {
+      width: 250px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    .pay-box {
+      margin-top: 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      gap: 10px;
       align-items: center;
+      flex-wrap: wrap;
     }
-
-    .product-item span.label {
-      background: red;
-      padding: 5px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-    }
-
-    .btn {
-      background: #25D366;
-      color: white;
-      border: none;
+    .pay-item {
+      background: #222;
       padding: 10px 15px;
       border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-      text-decoration: none;
+      font-size: 14px;
     }
-
-    .payment-section, .upload-section {
-      background: #1a1a1a;
-      margin: 20px;
-      padding: 20px;
-      border-radius: 12px;
-    }
-
-    input[type="file"] {
-      margin-top: 10px;
+    .btn {
+      background: #00aaee;
+      border: none;
       color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
     }
-
-    #snow {
+    .btn:hover {
+      background: #0077aa;
+    }
+    a.download-btn, button.download-btn {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 8px 15px;
+      margin-top: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a.download-btn:hover, button.download-btn:hover {
+      background: #1e7e34;
+    }
+    .snow span {
       position: fixed;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
+      color: white;
+      animation: fall 10s linear infinite;
+      font-size: 18px;
       z-index: 999;
     }
-
+    @keyframes fall {
+      0% { top: -10px; opacity: 0; }
+      50% { opacity: 1; }
+      100% { top: 110vh; opacity: 0; }
+    }
     .promo {
-      background: #333;
-      padding: 10px;
-      margin: 20px;
-      text-align: center;
-      border-radius: 8px;
+      background: #ff0066;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: fit-content;
+      font-weight: bold;
+      animation: blink 1.5s infinite alternate;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+    .habis-label {
+      background: linear-gradient(45deg, #ff0033, #cc0000);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 11px;
+      margin-left: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 8px red;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
-  <canvas id="snow"></canvas>
 
-  <header>
-    <img src="https://tmpfiles.org/dl/6101252/1752742424300.jpg" alt="YORIE Logo">
-    <div class="glitch" data-text="YORIE HOSTING">YORIE HOSTING</div>
-    <p>PANEL, SCRIPT BOT, SUNTIK ALL SOSMED, CREATE WEB, Dll</p>
-  </header>
-
-  <div class="promo">
-    <strong>🔥 PROMO TERBATAS!</strong> Dapatkan diskon untuk order pertama kamu.
+  <!-- Efek Salju -->
+  <div class="snow">
+    <span style="left: 5%; animation-delay: 0s;">❄</span>
+    <span style="left: 20%; animation-delay: 2s;">❄</span>
+    <span style="left: 40%; animation-delay: 4s;">❄</span>
+    <span style="left: 60%; animation-delay: 1s;">❄</span>
+    <span style="left: 80%; animation-delay: 3s;">❄</span>
   </div>
 
-  <section class="product-list">
-    <div class="product-item">
-      ✅ Panel Premium <span class="label">Stok Habis</span>
-    </div>
-    <div class="product-item">
-      🤖 Script Bot <span class="label">Stok Habis</span>
-    </div>
-    <div class="product-item">
-      💉 Suntik Followers <span class="label">Stok Habis</span>
-    </div>
-  </section>
+  <!-- Profil & Judul -->
+  <img src="https://files.catbox.moe/u6tczy.jpg" alt="Yorie Profile" class="photo" />
+  <h1>YORIE HOSTING</h1>
+  <p>PANEL | SCRIPT BOT | SUNTIK ALL SOSMED | CREATE WEB | DLL</p>
 
-  <section class="payment-section">
-    <h3>Pembayaran</h3>
-    <p><strong>DANA:</strong> 085215996783 <button class="btn" onclick="salinText('085215996783')">SALIN</button></p>
-    <p><strong>GOPAY:</strong> 081219010585 <button class="btn" onclick="salinText('081219010585')">SALIN</button></p>
-    <p><strong>QRIS:</strong></p>
-    <img src="https://files.catbox.moe/b77hm7.jpg" alt="QRIS" width="200">
+  <!-- Promo -->
+  <div class="promo">🔥 Promo Juli: Diskon 30% untuk Suntik Sosmed!</div>
+
+  <!-- Layanan -->
+  <ul>
+    <li>🤖 Panel Bot WhatsApp <span class="habis-label">Stok Habis</span></li>
+    <li>⚙️ Script Bot Wa / API Bot</li>
+    <li>💻 Web Custom Murah</li>
+    <li>📞 Nokos Indonesia</li>
+    <li>📲 Suntik Sosmed (WA, IG, DLL)</li>
+    <li>📂 Hosting Script / Deploy</li>
+  </ul>
+
+  <!-- Pembayaran -->
+  <div class="payment">
+    <h2>Metode Pembayaran</h2>
+    <p>Scan QRIS</p>
+    <img src="https://files.catbox.moe/b77hm7.jpg" alt="QRIS Yorie" class="qris" />
+    <br>
+    <a class="download-btn" href="https://files.catbox.moe/b77hm7.jpg" download="QRIS_Yorie.jpg">⬇ Download QRIS</a>
+
+    <!-- Upload Bukti -->
     <br><br>
-    <a href="https://files.catbox.moe/b77hm7.jpg" download class="btn">Download QR</a>
-  </section>
-
-  <section class="upload-section">
     <h3>Upload Bukti Pembayaran</h3>
-    <input type="file" id="buktiInput" />
-    <br><br>
-    <button class="btn" onclick="kirimBukti()">KIRIM VIA WHATSAPP</button>
-  </section>
+    <form onsubmit="return handleUpload()">
+      <input type="file" id="fileInput" accept="image/*,.pdf" required><br><br>
+      <button type="submit" class="download-btn">📤 Kirim Bukti via WhatsApp</button>
+    </form>
 
-  <!-- Customer Service -->
-  <div style="background: #1a1a1a; padding: 20px; margin: 40px auto; width: 85%; border-radius: 15px;">
-    <h2 style="margin-bottom: 10px;">📞 Customer Service</h2>
-    <p>Butuh bantuan atau ada pertanyaan? Silakan hubungi kami melalui WhatsApp:</p>
-    <div style="margin-top: 15px;">
-      <a href="https://wa.me/6285215996783?text=Halo%20kak%20YORIE%2C%20saya%20mau%20bertanya%20tentang%20layanan" target="_blank" class="btn" style="background: #25D366;">Chat via WhatsApp</a>
+    <!-- Dana & Gopay -->
+    <div class="pay-box">
+      <div class="pay-item">
+        Dana: <span id="dana">085215996783</span>
+        <button class="btn" onclick="salin('dana')">SALIN</button>
+      </div>
+      <div class="pay-item">
+        Gopay: <span id="gopay">081219010585</span>
+        <button class="btn" onclick="salin('gopay')">SALIN</button>
+      </div>
     </div>
   </div>
 
+  <!-- Script -->
   <script>
-    function salinText(text) {
-      navigator.clipboard.writeText(text);
-      alert("Berhasil disalin: " + text);
+    function salin(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      });
     }
 
-    function kirimBukti() {
-      const fileInput = document.getElementById("buktiInput");
-      const fileName = fileInput.files[0] ? fileInput.files[0].name : "Belum upload file";
-      const pesan = `Halo kak, saya sudah melakukan pembayaran.%0ABukti: *${fileName}*%0ATolong cek ya~`;
-      const url = "https://wa.me/6285215996783?text=" + pesan;
-      window.open(url, "_blank");
+    function handleUpload() {
+      const fileInput = document.getElementById('fileInput');
+      const fileName = fileInput.files[0]?.name || 'Bukti Pembayaran';
+      const link = `https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20melakukan%20pembayaran.%0ABukti%3A%20*${fileName}*%0ATolong%20cek%20ya~`;
+      window.open(link, '_blank');
+      return false;
     }
-
-    // Snow effect
-    const canvas = document.getElementById("snow");
-    const ctx = canvas.getContext("2d");
-    let width = canvas.width = window.innerWidth;
-    let height = canvas.height = window.innerHeight;
-    let flakes = [];
-
-    function snowFlake() {
-      this.x = Math.random() * width;
-      this.y = Math.random() * height;
-      this.r = Math.random() * 5 + 2;
-      this.d = Math.random() + 1;
-      this.tilt = Math.floor(Math.random() * 5) - 2;
-    }
-
-    for (let i = 0; i < 100; i++) {
-      flakes.push(new snowFlake());
-    }
-
-    function drawFlakes() {
-      ctx.clearRect(0, 0, width, height);
-      ctx.fillStyle = "white";
-      ctx.beginPath();
-      for (let i = 0; i < flakes.length; i++) {
-        let f = flakes[i];
-        ctx.moveTo(f.x, f.y);
-        ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2, true);
-      }
-      ctx.fill();
-      moveFlakes();
-    }
-
-    function moveFlakes() {
-      for (let i = 0; i < flakes.length; i++) {
-        let f = flakes[i];
-        f.y += Math.pow(f.d, 2) + 1;
-        f.x += f.tilt;
-
-        if (f.y > height) {
-          flakes[i] = new snowFlake();
-          flakes[i].y = 0;
-        }
-      }
-    }
-
-    setInterval(drawFlakes, 25);
   </script>
+
 </body>
 </html>
