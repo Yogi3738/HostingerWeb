@@ -6,167 +6,229 @@
   <title>YORIE HOSTING</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
       background: #111;
-      color: #fff;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
     h1 {
-      font-size: 2.5em;
-      margin-top: 20px;
-      animation: glitch 1s infinite;
-    }
-    .glow {
-      text-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
-    }
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-    }
-    .produk {
-      margin: 20px 0;
-      padding: 15px;
-      background: #1a1a1a;
-      border-radius: 10px;
-      position: relative;
-    }
-    .produk-icon {
-      position: absolute;
-      left: 10px;
-      top: 15px;
-    }
-    .produk.stok-habis {
-      opacity: 0.4;
-      position: relative;
-    }
-    .produk.stok-habis::after {
-      content: 'STOK HABIS';
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      background: crimson;
-      padding: 5px 10px;
-      font-size: 0.8em;
-      border-radius: 5px;
-    }
-    .payment-box {
-      margin-top: 30px;
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 10px;
-    }
-    .download-btn {
-      background: #0ff;
-      padding: 10px 20px;
-      border: none;
-      color: #000;
+      margin-top: 10px;
+      font-size: 28px;
       font-weight: bold;
-      border-radius: 8px;
-      text-decoration: none;
-      display: inline-block;
-      margin: 5px;
-      transition: 0.3s;
+      animation: glitch 1.5s infinite;
     }
-    .download-btn:hover {
-      transform: scale(1.05);
-    }
-    input[type="file"] {
-      margin-top: 15px;
-      margin-bottom: 10px;
-    }
-
     @keyframes glitch {
-      0% { text-shadow: 2px 2px #f0f; }
-      20% { text-shadow: -2px -2px #0ff; }
-      40% { text-shadow: 2px -2px #f0f; }
-      60% { text-shadow: -2px 2px #0ff; }
-      80% { text-shadow: 2px 2px #f0f; }
-      100% { text-shadow: -2px -2px #0ff; }
+      0% { text-shadow: 2px 2px red, -2px -2px blue; }
+      25% { text-shadow: -2px 2px lime, 2px -2px cyan; }
+      50% { text-shadow: 2px -2px yellow, -2px 2px magenta; }
+      75% { text-shadow: -1px -1px white, 1px 1px gray; }
+      100% { text-shadow: 2px 2px red, -2px -2px blue; }
     }
-
-    /* Salju */
-    .snow {
+    .photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin: 20px auto 10px;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      background: #222;
+      margin: 10px auto;
+      padding: 12px 18px;
+      width: 80%;
+      border-radius: 12px;
+      font-size: 15px;
+      text-align: left;
+    }
+    .payment {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 30px auto;
+      width: 85%;
+    }
+    .qris {
+      width: 250px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+    .pay-box {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .pay-item {
+      background: #222;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+    .btn {
+      background: #00aaee;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+    .btn:hover {
+      background: #0077aa;
+    }
+    a.download-btn, button.download-btn {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 8px 15px;
+      margin-top: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    a.download-btn:hover, button.download-btn:hover {
+      background: #1e7e34;
+    }
+    .snow span {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background: url('https://i.ibb.co/Y3bMKzV/snowfall.gif') repeat top center;
+      color: white;
+      animation: fall 10s linear infinite;
+      font-size: 18px;
       z-index: 999;
-      opacity: 0.4;
+    }
+    @keyframes fall {
+      0% { top: -10px; opacity: 0; }
+      50% { opacity: 1; }
+      100% { top: 110vh; opacity: 0; }
+    }
+    .promo {
+      background: #ff0066;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: fit-content;
+      font-weight: bold;
+      animation: blink 1.5s infinite alternate;
+    }
+    @keyframes blink {
+      0% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+    .habis-label {
+      background: linear-gradient(45deg, #ff0033, #cc0000);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 11px;
+      margin-left: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 8px red;
+      animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
     }
   </style>
 </head>
 <body>
-<div class="snow"></div>
 
-  <div class="container">
-    <img src="https://tmpfiles.org/dl/6101252/1752742424300.jpg" alt="Logo" width="100" style="border-radius: 50%;">
-    <h1 class="glow">YORIE HOSTING</h1>
-    <p>PANEL, SCRIPT BOT, SUNTIK SOSMED, CREATE WEB, DLL</p>
-
-    <div class="produk">
-      <span class="produk-icon">📦</span>
-      Jasa Panel Premium
-    </div>
-    <div class="produk">
-      <span class="produk-icon">🤖</span>
-      Script Bot Auto
-    </div>
-    <div class="produk stok-habis">
-      <span class="produk-icon">📲</span>
-      Suntik Followers IG (Stok habis)
-    </div>
-    <div class="produk">
-      <span class="produk-icon">💻</span>
-      Buat Website Custom
-    </div>
-
-    <div class="payment-box">
-      <h2>💰 ALL PAYMENT YORIE</h2>
-
-      <p>QRIS:</p>
-      <img src="https://files.catbox.moe/b77hm7.jpg" alt="QRIS" width="200" style="border-radius: 10px;"><br>
-      <a class="download-btn" href="https://files.catbox.moe/b77hm7.jpg" download>Download QRIS</a>
-
-      <p>DANA: <strong>0852 1599 6783</strong></p>
-      <button class="download-btn" onclick="salinTeks('085215996783')">SALIN</button>
-
-      <p>GOPAY: <strong>0812 1901 0585</strong></p>
-      <button class="download-btn" onclick="salinTeks('081219010585')">SALIN</button>
-
-      <hr style="margin:20px 0;">
-
-      <input type="file" id="bukti" />
-      <button class="download-btn" onclick="kirimWA()">Kirim Bukti</button>
-    </div>
-
-    <br>
-    <!-- Tombol Hubungi CS -->
-    <a href="https://wa.me/6285215996783?text=Halo%20kak%20YORIE%2C%20saya%20mau%20bertanya%20tentang%20layanan" target="_blank" class="download-btn" style="background:#00bfa5;">
-      💬 Hubungi Customer Service
-    </a>
+  <!-- Efek Salju -->
+  <div class="snow">
+    <span style="left: 5%; animation-delay: 0s;">❄</span>
+    <span style="left: 20%; animation-delay: 2s;">❄</span>
+    <span style="left: 40%; animation-delay: 4s;">❄</span>
+    <span style="left: 60%; animation-delay: 1s;">❄</span>
+    <span style="left: 80%; animation-delay: 3s;">❄</span>
   </div>
 
   <!-- Musik -->
-  <audio autoplay loop id="musik" src="https://example.com/musik.mp3"></audio>
+  <audio autoplay loop hidden>
+    <source src="https://files.catbox.moe/xxxxxx.mp3" type="audio/mpeg">
+  </audio>
 
+  <!-- Profil & Judul -->
+  <img src="https://files.catbox.moe/u6tczy.jpg" alt="Yorie Profile" class="photo" />
+  <h1>YORIE HOSTING</h1>
+  <p>PANEL | SCRIPT BOT | SUNTIK SOSMED | CREATE WEB | DLL</p>
+
+  <!-- Promo -->
+  <div class="promo">🔥 Promo Juli: Diskon 30% Suntik Sosmed!</div>
+
+  <!-- Layanan -->
+  <ul>
+    <li>🤖 Panel Bot WhatsApp <span class="habis-label">Stok Habis</span></li>
+    <li>⚙️ Script Bot / API</li>
+    <li>💻 Web Custom</li>
+    <li>📞 Nokos Indo</li>
+    <li>📲 Suntik Sosmed</li>
+    <li>📂 Hosting Script</li>
+  </ul>
+
+  <!-- Pembayaran -->
+  <div class="payment">
+    <h2>Metode Pembayaran</h2>
+    <p>Scan QRIS</p>
+    <img src="https://files.catbox.moe/b77hm7.jpg" alt="QRIS Yorie" class="qris" />
+    <br>
+    <a class="download-btn" href="https://files.catbox.moe/b77hm7.jpg" download>⬇ Download QRIS</a>
+
+    <!-- Upload Bukti -->
+    <br><br>
+    <h3>Upload Bukti Pembayaran (Otomatis ke WhatsApp)</h3>
+    <form action="https://formsubmit.co/eekbau113@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="return handleUpload()">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Bukti Pembayaran dari Pelanggan">
+      <input type="hidden" name="_next" id="next-link" value="#">
+      <input type="file" name="attachment" id="fileInput" accept="image/*,.pdf" required><br><br>
+      <button type="submit" class="download-btn">📤 Upload & Kirim ke CS</button>
+    </form>
+
+    <!-- Dana & Gopay -->
+    <div class="pay-box">
+      <div class="pay-item">
+        Dana: <span id="dana">085215996783</span>
+        <button class="btn" onclick="salin('dana')">SALIN</button>
+      </div>
+      <div class="pay-item">
+        Gopay: <span id="gopay">081219010585</span>
+        <button class="btn" onclick="salin('gopay')">SALIN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kontak CS -->
+  <br>
+  <a class="download-btn" href="https://wa.me/6285215996783?text=Halo%20admin%2C%20saya%20mau%20tanya%20tentang%20layanan%20YORIE%20HOSTING" target="_blank">💬 Chat CS Sekarang</a>
+
+  <!-- Script -->
   <script>
-    function salinTeks(teks) {
-      navigator.clipboard.writeText(teks);
-      alert("Disalin: " + teks);
+    function salin(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      });
     }
 
-    function kirimWA() {
-      const file = document.getElementById('bukti').files[0];
-      if (!file) {
-        alert("Silakan upload bukti transfer terlebih dahulu.");
-        return;
-      }
-      const fileName = file.name;
-      const link = `https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20melakukan%20pembayaran.%0ABukti%3A%20*${fileName}*%0ATolong%20dicek%20ya~`;
-      window.open(link,
+    function handleUpload() {
+      const fileInput = document.getElementById('fileInput');
+      const fileName = fileInput.files[0]?.name || 'Bukti Pembayaran';
+      const whatsappLink = `https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20melakukan%20pembayaran.%0ABukti%3A%20*${fileName}*%0ATolong%20cek%20ya~`;
+      document.getElementById('next-link').value = whatsappLink;
+      return true;
+    }
+  </script>
+
+</body>
+</html>
