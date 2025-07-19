@@ -13,14 +13,12 @@
       margin: 0;
       padding: 0;
     }
-
     h1 {
       margin-top: 10px;
       font-size: 28px;
       font-weight: bold;
       animation: glitch 1.5s infinite;
     }
-
     @keyframes glitch {
       0% { text-shadow: 2px 2px red, -2px -2px blue; }
       25% { text-shadow: -2px 2px lime, 2px -2px cyan; }
@@ -28,7 +26,6 @@
       75% { text-shadow: -1px -1px white, 1px 1px gray; }
       100% { text-shadow: 2px 2px red, -2px -2px blue; }
     }
-
     .photo {
       width: 120px;
       height: 120px;
@@ -37,12 +34,10 @@
       border: 3px solid white;
       margin: 20px auto 10px;
     }
-
     ul {
       list-style: none;
       padding: 0;
     }
-
     li {
       background: #222;
       margin: 10px auto;
@@ -52,7 +47,6 @@
       font-size: 15px;
       text-align: left;
     }
-
     .payment {
       background: #1a1a1a;
       padding: 20px;
@@ -60,13 +54,11 @@
       margin: 30px auto;
       width: 85%;
     }
-
     .qris {
       width: 250px;
       border-radius: 12px;
       margin-top: 10px;
     }
-
     .pay-box {
       margin-top: 20px;
       display: flex;
@@ -75,14 +67,12 @@
       align-items: center;
       flex-wrap: wrap;
     }
-
     .pay-item {
       background: #222;
       padding: 10px 15px;
       border-radius: 8px;
       font-size: 14px;
     }
-
     .btn {
       background: #00aaee;
       border: none;
@@ -92,11 +82,9 @@
       cursor: pointer;
       margin-left: 10px;
     }
-
     .btn:hover {
       background: #0077aa;
     }
-
     a.download-btn, button.download-btn {
       display: inline-block;
       background: #28a745;
@@ -107,11 +95,9 @@
       text-decoration: none;
       cursor: pointer;
     }
-
     a.download-btn:hover, button.download-btn:hover {
       background: #1e7e34;
     }
-
     .snow span {
       position: fixed;
       color: white;
@@ -119,13 +105,11 @@
       font-size: 18px;
       z-index: 999;
     }
-
     @keyframes fall {
       0% { top: -10px; opacity: 0; }
       50% { opacity: 1; }
       100% { top: 110vh; opacity: 0; }
     }
-
     .promo {
       background: #ff0066;
       padding: 10px 15px;
@@ -135,12 +119,10 @@
       font-weight: bold;
       animation: blink 1.5s infinite alternate;
     }
-
     @keyframes blink {
       0% { opacity: 1; }
       100% { opacity: 0.5; }
     }
-
     .habis-label {
       background: linear-gradient(45deg, #ff0033, #cc0000);
       color: white;
@@ -153,7 +135,6 @@
       box-shadow: 0 0 8px red;
       animation: pulse 1.5s infinite;
     }
-
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.1); opacity: 0.7; }
@@ -172,7 +153,7 @@
     <span style="left: 80%; animation-delay: 3s;">❄</span>
   </div>
 
-  <!-- Foto + Judul -->
+  <!-- Profil & Judul -->
   <img src="https://files.catbox.moe/u6tczy.jpg" alt="Yorie Profile" class="photo" />
   <h1>YORIE HOSTING</h1>
   <p>PANEL | SCRIPT BOT | SUNTIK ALL SOSMED | CREATE WEB | DLL</p>
@@ -198,14 +179,14 @@
     <br>
     <a class="download-btn" href="https://files.catbox.moe/b77hm7.jpg" download="QRIS_Yorie.jpg">⬇ Download QRIS</a>
 
-    <!-- Upload Bukti Pembayaran -->
+    <!-- Upload Bukti -->
     <br><br>
-    <h3>Upload Bukti Pembayaran (Otomatis ke Email & WhatsApp)</h3>
-    <form action="https://formsubmit.co/eekbau113@gmail.com" method="POST" enctype="multipart/form-data">
+    <h3>Upload Bukti Pembayaran (Dikirim via Email)</h3>
+    <form action="https://formsubmit.co/eekbau113@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="return handleUpload()">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_subject" value="Bukti Pembayaran dari Pelanggan">
-      <input type="hidden" name="_next" value="https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20melakukan%20pembayaran.%0ABukti%3A%20*${fileName}*%0ATolong%20cek%20ya~">
-      <input type="file" name="attachment" accept="image/*,.pdf" required><br><br>
+      <input type="hidden" name="_next" id="next-link" value="#">
+      <input type="file" name="attachment" id="fileInput" accept="image/*,.pdf" required><br><br>
       <button type="submit" class="download-btn">📤 Upload & Kirim ke WhatsApp</button>
     </form>
 
@@ -222,13 +203,21 @@
     </div>
   </div>
 
-  <!-- Script Salin -->
+  <!-- Script -->
   <script>
     function salin(id) {
       const text = document.getElementById(id).textContent;
       navigator.clipboard.writeText(text).then(() => {
         alert("Nomor berhasil disalin: " + text);
       });
+    }
+
+    function handleUpload() {
+      const fileInput = document.getElementById('fileInput');
+      const fileName = fileInput.files[0]?.name || 'Bukti Pembayaran';
+      const whatsappLink = `https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20melakukan%20pembayaran.%0ABukti%3A%20*${fileName}*%0ATolong%20cek%20ya~`;
+      document.getElementById('next-link').value = whatsappLink;
+      return true;
     }
   </script>
 
