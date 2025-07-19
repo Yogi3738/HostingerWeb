@@ -1,4 +1,4 @@
-o<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -141,6 +141,24 @@ o<!DOCTYPE html>
       100% { opacity: 0.5; }
     }
 
+    .habis-label {
+      background: linear-gradient(45deg, #ff0033, #cc0000);
+      color: white;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-size: 11px;
+      margin-left: 8px;
+      font-weight: bold;
+      text-transform: uppercase;
+      box-shadow: 0 0 8px red;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.7; }
+      100% { transform: scale(1); opacity: 1; }
+    }
   </style>
 </head>
 <body>
@@ -164,7 +182,7 @@ o<!DOCTYPE html>
 
   <!-- Layanan -->
   <ul>
-    <li>🤖 Panel Bot WhatsApp  <span class="habis-label">Stok Habis</span></li>
+    <li>🤖 Panel Bot WhatsApp <span class="habis-label">Stok Habis</span></li>
     <li>⚙️ Script Auto Reply / API Bot</li>
     <li>💻 Web Custom Murah</li>
     <li>📲 Suntik Sosmed (WA, IG, DLL)</li>
