@@ -97,7 +97,7 @@
       background: #0077aa;
     }
 
-    a.download-btn {
+    a.download-btn, button.download-btn {
       display: inline-block;
       background: #28a745;
       color: white;
@@ -105,9 +105,10 @@
       margin-top: 10px;
       border-radius: 6px;
       text-decoration: none;
+      cursor: pointer;
     }
 
-    a.download-btn:hover {
+    a.download-btn:hover, button.download-btn:hover {
       background: #1e7e34;
     }
 
@@ -177,33 +178,17 @@
     <img src="https://files.catbox.moe/b77hm7.jpg" alt="QRIS Yorie" class="qris" />
     <br>
     <a class="download-btn" href="https://files.catbox.moe/b77hm7.jpg" download="QRIS_Yorie.jpg">⬇ Download QRIS</a>
-    
+
+    <!-- Upload Bukti Pembayaran -->
     <br><br>
-<h3>Upload Bukti Pembayaran (Opsional)</h3>
-<input type="file" id="bukti" accept="image/*,.pdf" />
-<br><br>
-<a class="download-btn" href="#" onclick="kirimBukti()">📤 Kirim via WhatsApp</a>
-
-<script>
-  function kirimBukti() {
-    const fileInput = document.getElementById('bukti');
-    if (!fileInput.files.length) {
-      alert("Pilih dulu file bukti pembayaran.");
-      return;
-    }
-
-    const fileName = fileInput.files[0].name;
-    const whatsappLink = `https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20melakukan%20pembayaran.%0ABukti%3A%20*${fileName}*%0ATolong%20cek%20ya~`;
-
-    window.open(whatsappLink, '_blank');
-  }
-</script>
-
-    <!-- Tombol Kirim Bukti -->
-    <br><br>
-    <a class="download-btn" href="https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20tf%3A" target="_blank">
-      📤 Kirim Bukti Pembayaran
-    </a>
+    <h3>Upload Bukti Pembayaran (Otomatis ke Email & WhatsApp)</h3>
+    <form action="https://formsubmit.co/yoriehost@gmail.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_subject" value="Bukti Pembayaran dari Pelanggan">
+      <input type="hidden" name="_next" value="https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20upload%20bukti%20pembayaran.%20Tolong%20dicek%20ya~">
+      <input type="file" name="attachment" accept="image/*,.pdf" required><br><br>
+      <button type="submit" class="download-btn">📤 Upload & Kirim ke WhatsApp</button>
+    </form>
 
     <!-- Dana & Gopay -->
     <div class="pay-box">
