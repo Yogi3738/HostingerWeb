@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YORIE HOSTING</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      margin-top: 10px;
+      font-size: 28px;
+      font-weight: bold;
+      animation: glitch 1.5s infinite;
+    }
+
+    @keyframes glitch {
+      0% { text-shadow: 2px 2px red, -2px -2px blue; }
+      25% { text-shadow: -2px 2px lime, 2px -2px cyan; }
+      50% { text-shadow: 2px -2px yellow, -2px 2px magenta; }
+      75% { text-shadow: -1px -1px white, 1px 1px gray; }
+      100% { text-shadow: 2px 2px red, -2px -2px blue; }
+    }
+
+    .photo {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 3px solid white;
+      margin: 20px auto 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      background: #222;
+      margin: 10px auto;
+      padding: 12px 18px;
+      width: 80%;
+      border-radius: 12px;
+      font-size: 15px;
+      text-align: left;
+    }
+
+    .payment {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      margin: 30px auto;
+      width: 85%;
+    }
+
+    .qris {
+      width: 250px;
+      border-radius: 12px;
+      margin-top: 10px;
+    }
+
+    .pay-box {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .pay-item {
+      background: #222;
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-size: 14px;
+    }
+
+    .btn {
+      background: #00aaee;
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-left: 10px;
+    }
+
+    .btn:hover {
+      background: #0077aa;
+    }
+
+    a.download-btn {
+      display: inline-block;
+      background: #28a745;
+      color: white;
+      padding: 8px 15px;
+      margin-top: 10px;
+      border-radius: 6px;
+      text-decoration: none;
+    }
+
+    a.download-btn:hover {
+      background: #1e7e34;
+    }
+
+    .snow span {
+      position: fixed;
+      color: white;
+      animation: fall 10s linear infinite;
+      font-size: 18px;
+      z-index: 999;
+    }
+
+    @keyframes fall {
+      0% { top: -10px; opacity: 0; }
+      50% { opacity: 1; }
+      100% { top: 110vh; opacity: 0; }
+    }
+
+    .promo {
+      background: #ff0066;
+      padding: 10px 15px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: fit-content;
+      font-weight: bold;
+      animation: blink 1.5s infinite alternate;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Efek Salju -->
+  <div class="snow">
+    <span style="left: 5%; animation-delay: 0s;">❄</span>
+    <span style="left: 20%; animation-delay: 2s;">❄</span>
+    <span style="left: 40%; animation-delay: 4s;">❄</span>
+    <span style="left: 60%; animation-delay: 1s;">❄</span>
+    <span style="left: 80%; animation-delay: 3s;">❄</span>
+  </div>
+
+  <!-- Foto + Judul -->
+  <img src="https://files.catbox.moe/u6tczy.jpg" alt="Yorie Profile" class="photo" />
+  <h1>YORIE HOSTING</h1>
+  <p>PANEL | SCRIPT BOT | SUNTIK ALL SOSMED | CREATE WEB | DLL</p>
+
+  <!-- Promo -->
+  <div class="promo">🔥 Promo Juli: Diskon 30% untuk Suntik Sosmed!</div>
+
+  <!-- Layanan -->
+  <ul>
+    <li>🤖 Panel Bot WhatsApp</li>
+    <li>⚙️ Script Auto Reply / API Bot</li>
+    <li>💻 Web Custom Murah</li>
+    <li>📲 Suntik Sosmed (WA, IG, DLL)</li>
+    <li>📂 Hosting Script / Deploy</li>
+  </ul>
+
+  <!-- Pembayaran -->
+  <div class="payment">
+    <h2>Metode Pembayaran</h2>
+    <p>Scan QRIS</p>
+    <img src="https://files.catbox.moe/b77hm7.jpg" alt="QRIS Yorie" class="qris" />
+    <br>
+    <a class="download-btn" href="https://files.catbox.moe/b77hm7.jpg" download="QRIS_Yorie.jpg">⬇ Download QRIS</a>
+    
+    <br><br>
+<h3>Upload Bukti Pembayaran (Opsional)</h3>
+<input type="file" id="bukti" accept="image/*,.pdf" />
+<br><br>
+<a class="download-btn" href="#" onclick="kirimBukti()">📤 Kirim via WhatsApp</a>
+
+<script>
+  function kirimBukti() {
+    const fileInput = document.getElementById('bukti');
+    if (!fileInput.files.length) {
+      alert("Pilih dulu file bukti pembayaran.");
+      return;
+    }
+
+    const fileName = fileInput.files[0].name;
+    const whatsappLink = `https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20melakukan%20pembayaran.%0ABukti%3A%20*${fileName}*%0ATolong%20cek%20ya~`;
+
+    window.open(whatsappLink, '_blank');
+  }
+</script>
+
+    <!-- Tombol Kirim Bukti -->
+    <br><br>
+    <a class="download-btn" href="https://wa.me/6285215996783?text=Halo%20kak%2C%20saya%20sudah%20tf%3A" target="_blank">
+      📤 Kirim Bukti Pembayaran
+    </a>
+
+    <!-- Dana & Gopay -->
+    <div class="pay-box">
+      <div class="pay-item">
+        Dana: <span id="dana">085215996783</span>
+        <button class="btn" onclick="salin('dana')">SALIN</button>
+      </div>
+      <div class="pay-item">
+        Gopay: <span id="gopay">081219010585</span>
+        <button class="btn" onclick="salin('gopay')">SALIN</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Salin -->
+  <script>
+    function salin(id) {
+      const text = document.getElementById(id).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("Nomor berhasil disalin: " + text);
+      });
+    }
+  </script>
+
+</body>
+</html>
