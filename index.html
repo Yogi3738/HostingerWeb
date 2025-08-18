@@ -34,6 +34,15 @@
       border: 3px solid white;
       margin: 20px auto 10px;
     }
+    /* Jam Digital */
+    #jam-digital {
+      font-size: 20px;
+      margin: 8px 0 15px 0;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+    }
     ul {
       list-style: none;
       padding: 0;
@@ -94,6 +103,7 @@
       border-radius: 6px;
       text-decoration: none;
       cursor: pointer;
+      border: none;
     }
     a.download-btn:hover, button.download-btn:hover {
       background: #1e7e34;
@@ -154,14 +164,19 @@
   </div>
 
   <!-- Musik -->
-  <audio autoplay loop hidden>
+  <audio id="bg-music" loop>
     <source src="https://files.catbox.moe/gqtgt7.mp3" type="audio/mpeg">
   </audio>
 
   <!-- Profil & Judul -->
   <img src="https://files.catbox.moe/u6tczy.jpg" alt="Yorie Profile" class="photo" />
   <h1>YORIE HOSTING</h1>
+  <!-- Jam Digital -->
+  <div id="jam-digital">00:00:00</div>
   <p>PANEL | SCRIPT BOT | SUNTIK SOSMED | CREATE WEB | DLL</p>
+
+  <!-- Tombol Play Musik -->
+  <button id="music-btn" class="download-btn">▶ Play Musik</button>
 
   <!-- Promo -->
   <div class="promo">🔥 Promo Agustus: Diskon 30% Suntik Sosmed!</div>
@@ -228,6 +243,31 @@
       document.getElementById('next-link').value = whatsappLink;
       return true;
     }
+
+    // Kontrol Musik
+    const music = document.getElementById("bg-music");
+    const btn = document.getElementById("music-btn");
+
+    btn.addEventListener("click", () => {
+      if (music.paused) {
+        music.play();
+        btn.textContent = "⏸ Pause Musik";
+      } else {
+        music.pause();
+        btn.textContent = "▶ Play Musik";
+      }
+    });
+
+    // Jam Digital
+    function updateJam() {
+      const now = new Date();
+      const jam = String(now.getHours()).padStart(2, '0');
+      const menit = String(now.getMinutes()).padStart(2, '0');
+      const detik = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById("jam-digital").textContent = `${jam}:${menit}:${detik}`;
+    }
+    setInterval(updateJam, 1000);
+    updateJam();
   </script>
 
 </body>
