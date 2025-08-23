@@ -34,7 +34,6 @@
       border: 3px solid white;
       margin: 20px auto 10px;
     }
-    /* Jam Digital */
     #jam-digital {
       font-size: 20px;
       margin: 8px 0 15px 0;
@@ -54,7 +53,24 @@
       width: 80%;
       border-radius: 12px;
       font-size: 15px;
-      text-align: left;
+      cursor: pointer;
+      transition: 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li:hover {
+      background: #333;
+    }
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .price {
+      color: #00ffcc;
+      font-weight: bold;
+      margin-left: 10px;
     }
     .payment {
       background: #1a1a1a;
@@ -139,7 +155,7 @@
       padding: 3px 10px;
       border-radius: 50px;
       font-size: 11px;
-      margin-left: 8px;
+      margin-left: 5px;
       font-weight: bold;
       text-transform: uppercase;
       box-shadow: 0 0 8px red;
@@ -149,6 +165,34 @@
       0% { transform: scale(1); opacity: 1; }
       50% { transform: scale(1.1); opacity: 0.7; }
       100% { transform: scale(1); opacity: 1; }
+    }
+    /* Modal Produk */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #222;
+      padding: 20px;
+      border-radius: 12px;
+      width: 80%;
+      max-width: 400px;
+      text-align: left;
+      color: white;
+      box-shadow: 0 0 15px #000;
+    }
+    .close {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+      color: #ff5555;
+      font-size: 20px;
     }
   </style>
 </head>
@@ -171,26 +215,60 @@
   <!-- Profil & Judul -->
   <img src="https://files.catbox.moe/u6tczy.jpg" alt="Yorie Profile" class="photo" />
   <h1>YORIE HOSTING</h1>
-  <!-- Jam Digital -->
   <div id="jam-digital">00:00:00</div>
   <p>PANEL | SCRIPT BOT | SUNTIK SOSMED | CREATE WEB | DLL</p>
 
-  <!-- Tombol Play Musik -->
+  <!-- Tombol Musik -->
   <button id="music-btn" class="download-btn">▶ Play Musik</button>
 
   <!-- Promo -->
-  <div class="promo">🔥 Promo Agustus: Diskon 30% Suntik Sosmed!</div>
+  <div class="promo">🔥 Promo Agustus: Diskon 30%!</div>
+
+  <!-- Info klik produk -->
+  <h3 style="margin-top:25px; font-size:16px; color:#00ffcc; text-shadow:0 0 8px #00ffcc;">
+    ✨ Klik produk untuk lihat detail ✨
+  </h3>
 
   <!-- Layanan -->
   <ul>
-    <li>🤖 Panel Bot WhatsApp <span class="habis-label">Stok Habis</span></li>
-    <li>⚙️ Script Bot / API</li>
-    <li>💻 Web Custom</li>
-    <li>📞 Nokos Indo <span class="habis-label">Stok Habis</span></li>
-    <li>📲 Suntik Sosmed</li>
-    <li>📂 Hosting Script</li>
-    <li>💥 Jasa Bug Nomor WhatsApp</li>
+    <li onclick="openModal('Panel Bot WhatsApp','Panel khusus untuk bot WhatsApp, untuk menjalankan bot agar bisa terhubung ke nomor')">
+      <span class="left">🤖 Panel Bot WhatsApp <span class="habis-label">Stok Habis</span></span>
+      <span class="price">Rp1-10k</span>
+    </li>
+    <li onclick="openModal('Script Bot/API','Script bot premium, Harga mulai Rp 15.000, berikut script yg saha sediakan, Nika, ExoFloods, ExoZet')">
+      <span class="left">⚙️ Script Bot Bug</span>
+      <span class="price">Rp15-35k+</span>
+    </li>
+    <li onclick="openModal('Web Custom','Pembuatan website custom sesuai kebutuhan. Harga mulai Rp100.000')">
+      <span class="left">💻 Web Custom</span>
+      <span class="price">Hubungi CS</span>
+    </li>
+    <li onclick="openModal('Nokos Indo','Nomor Kosong Indonesia untuk verifikasi. Harga Rp5.000/nomor')">
+      <span class="left">📞 Nokos Indo <span class="habis-label">Stok Habis</span></span>
+      <span class="price">Rp4-20k</span>
+    </li>
+    <li onclick="openModal('Suntik Sosmed','Boost followers, likes, atau views dengan cepat & aman. Diskon 30% bulan ini!')">
+      <span class="left">📲 Suntik Sosmed</span>
+      <span class="price">Hubungi CS</span>
+    </li>
+    <li onclick="openModal('Hosting Script','Hosting script dengan server cepat & stabil. Harga mulai Rp20.000/bulan')">
+      <span class="left">Rename/Create Script Bug</span>
+      <span class="price">Rp15-50k+</span>
+    </li>
+    <li onclick="openModal('Jasa Bug Nomor WhatsApp','Jasa exploit nomor WA untuk kebutuhan testing. Hubungi admin untuk detail.')">
+      <span class="left">💥 Jasa Bug Nomor WhatsApp</span>
+      <span class="price">Hubungi CS</span>
+    </li>
   </ul>
+
+  <!-- Modal Produk -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2 id="modal-title"></h2>
+      <p id="modal-desc"></p>
+    </div>
+  </div>
 
   <!-- Pembayaran -->
   <div class="payment">
@@ -200,7 +278,6 @@
     <br>
     <a class="download-btn" href="https://files.catbox.moe/b77hm7.jpg" download>⬇ Download QRIS</a>
 
-    <!-- Upload Bukti -->
     <br><br>
     <h3>Upload Bukti Pembayaran (Otomatis ke WhatsApp)</h3>
     <form action="https://formsubmit.co/eekbau113@gmail.com" method="POST" enctype="multipart/form-data" onsubmit="return handleUpload()">
@@ -245,10 +322,24 @@
       return true;
     }
 
-    // Kontrol Musik
+    // Modal Produk
+    function openModal(title, desc) {
+      document.getElementById("modal-title").textContent = title;
+      document.getElementById("modal-desc").textContent = desc;
+      document.getElementById("myModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target == document.getElementById("myModal")) {
+        closeModal();
+      }
+    }
+
+    // Musik
     const music = document.getElementById("bg-music");
     const btn = document.getElementById("music-btn");
-
     btn.addEventListener("click", () => {
       if (music.paused) {
         music.play();
