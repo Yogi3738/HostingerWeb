@@ -194,10 +194,11 @@
       color: #ff5555;
       font-size: 20px;
     }
-    a.photo-link {
-  text-decoration: none; /* hilangkan underline */
-  color: inherit; /* ikutin warna teks sekitarnya */
-  display: inline-block; /* biar fotonya tetap rapi */
+    .photo-link {
+  display: inline-block;   /* link cuma sebesar isi (gambar) */
+  text-decoration: none;   /* hilangin underline */
+  color: inherit;          /* jangan jadi biru */
+  line-height: 0;          /* biar nggak ada space klik di luar gambar */
     }
   </style>
 </head>
