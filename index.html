@@ -4,50 +4,69 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>YORIE HOSTING</title>
-  <style>
-    body {
-      background: #111;
-      color: white;
-      font-family: 'Segoe UI', sans-serif;
-      text-align: center;
+  <style>body {
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      text-align: center;
+
+      /* background custom */
+      background: url("https://files.catbox.moe/hp6cr5.png") no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
     }
+
+    /* overlay gelap */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.65);
+      z-index: -1;
+    }
+    
     h1 {
       margin-top: 10px;
       font-size: 28px;
       font-weight: bold;
+      color: #bb86fc;
+      text-shadow: 0 0 8px #bb86fc, 0 0 20px #7b2cbf;
       animation: glitch 1.5s infinite;
     }
     @keyframes glitch {
-      0% { text-shadow: 2px 2px red, -2px -2px blue; }
-      25% { text-shadow: -2px 2px lime, 2px -2px cyan; }
-      50% { text-shadow: 2px -2px yellow, -2px 2px magenta; }
-      75% { text-shadow: -1px -1px white, 1px 1px gray; }
-      100% { text-shadow: 2px 2px red, -2px -2px blue; }
+      0% { text-shadow: 2px 2px #9d4edd, -2px -2px #7b2cbf; }
+      25% { text-shadow: -2px 2px #c77dff, 2px -2px #9d4edd; }
+      50% { text-shadow: 2px -2px #f0f, -2px 2px #7b2cbf; }
+      75% { text-shadow: -1px -1px #fff, 1px 1px #bb86fc; }
+      100% { text-shadow: 2px 2px #9d4edd, -2px -2px #7b2cbf; }
     }
     .photo {
       width: 120px;
       height: 120px;
       object-fit: cover;
       border-radius: 50%;
-      border: 3px solid white;
+      border: 3px solid #bb86fc;
       margin: 20px auto 10px;
+      box-shadow: 0 0 15px #7b2cbf;
     }
     #jam-digital {
       font-size: 20px;
       margin: 8px 0 15px 0;
       font-weight: bold;
       letter-spacing: 2px;
-      color: #00ffcc;
-      text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+      color: #bb86fc;
+      text-shadow: 0 0 10px #bb86fc, 0 0 20px #9d4edd;
     }
     ul {
       list-style: none;
       padding: 0;
     }
     li {
-      background: #222;
+      background: #1c0f2e;
       margin: 10px auto;
       padding: 12px 18px;
       width: 80%;
@@ -58,9 +77,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      box-shadow: 0 0 8px rgba(155, 0, 255, 0.4);
     }
     li:hover {
-      background: #333;
+      background: #2b134d;
     }
     .left {
       display: flex;
@@ -68,21 +88,23 @@
       gap: 6px;
     }
     .price {
-      color: #00ffcc;
+      color: #c77dff;
       font-weight: bold;
       margin-left: 10px;
     }
     .payment {
-      background: #1a1a1a;
+      background: #1c0f2e;
       padding: 20px;
       border-radius: 15px;
       margin: 30px auto;
       width: 85%;
+      box-shadow: 0 0 12px #7b2cbf;
     }
     .qris {
       width: 250px;
       border-radius: 12px;
       margin-top: 10px;
+      box-shadow: 0 0 10px #9d4edd;
     }
     .pay-box {
       margin-top: 20px;
@@ -93,26 +115,29 @@
       flex-wrap: wrap;
     }
     .pay-item {
-      background: #222;
+      background: #2b134d;
       padding: 10px 15px;
       border-radius: 8px;
       font-size: 14px;
+      color: #e0d4ff;
+      box-shadow: 0 0 6px #7b2cbf;
     }
     .btn {
-      background: #00aaee;
+      background: #9d4edd;
       border: none;
       color: white;
       padding: 5px 10px;
       border-radius: 6px;
       cursor: pointer;
       margin-left: 10px;
+      box-shadow: 0 0 6px #7b2cbf;
     }
     .btn:hover {
-      background: #0077aa;
+      background: #7b2cbf;
     }
     a.download-btn, button.download-btn {
       display: inline-block;
-      background: #28a745;
+      background: #7b2cbf;
       color: white;
       padding: 8px 15px;
       margin-top: 10px;
@@ -120,16 +145,18 @@
       text-decoration: none;
       cursor: pointer;
       border: none;
+      box-shadow: 0 0 10px #9d4edd;
     }
     a.download-btn:hover, button.download-btn:hover {
-      background: #1e7e34;
+      background: #5a189a;
     }
     .snow span {
       position: fixed;
-      color: white;
+      color: #bb86fc;
       animation: fall 10s linear infinite;
       font-size: 18px;
       z-index: 999;
+      text-shadow: 0 0 8px #9d4edd;
     }
     @keyframes fall {
       0% { top: -10px; opacity: 0; }
@@ -137,12 +164,14 @@
       100% { top: 110vh; opacity: 0; }
     }
     .promo {
-      background: #ff0066;
+      background: #9d4edd;
       padding: 10px 15px;
       border-radius: 10px;
       margin: 20px auto;
       width: fit-content;
       font-weight: bold;
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
       animation: blink 1.5s infinite alternate;
     }
     @keyframes blink {
@@ -150,7 +179,7 @@
       100% { opacity: 0.5; }
     }
     .habis-label {
-      background: linear-gradient(45deg, #ff0033, #cc0000);
+      background: linear-gradient(45deg, #ff4fff, #7b2cbf);
       color: white;
       padding: 3px 10px;
       border-radius: 50px;
@@ -158,7 +187,7 @@
       margin-left: 5px;
       font-weight: bold;
       text-transform: uppercase;
-      box-shadow: 0 0 8px red;
+      box-shadow: 0 0 8px #ff4fff;
       animation: pulse 1.5s infinite;
     }
     @keyframes pulse {
@@ -173,25 +202,25 @@
       z-index: 1000;
       left: 0; top: 0;
       width: 100%; height: 100%;
-      background: rgba(0,0,0,0.7);
+      background: rgba(20,0,40,0.8);
       justify-content: center;
       align-items: center;
     }
     .modal-content {
-      background: #222;
+      background: #1c0f2e;
       padding: 20px;
       border-radius: 12px;
       width: 80%;
       max-width: 400px;
       text-align: left;
-      color: white;
-      box-shadow: 0 0 15px #000;
+      color: #e0d4ff;
+      box-shadow: 0 0 15px #7b2cbf;
     }
     .close {
       float: right;
       cursor: pointer;
       font-weight: bold;
-      color: #ff5555;
+      color: #ff4fff;
       font-size: 20px;
     }
   </style>
@@ -213,7 +242,7 @@
   </audio>
 
   <!-- Profil & Judul -->
-  <img src="https://files.catbox.moe/u6tczy.jpg" alt="Yorie Profile" class="photo" />
+  <img src="https://files.catbox.moe/toxcfg.png" alt="Yorie Profile" class="photo" />
   <h1>YORIE HOSTING</h1>
   <div id="jam-digital">00:00:00</div>
   <p>PANEL | SCRIPT BOT | SUNTIK SOSMED | CREATE WEB | DLL</p>
@@ -222,10 +251,10 @@
   <button id="music-btn" class="download-btn">▶ Play Musik</button>
 
   <!-- Promo -->
-  <div class="promo">🔥 Promo Agustus: Diskon 30%!</div>
+  <div class="promo">🔥 Ada Harga Ada Kualitas!</div>
 
   <!-- Info klik produk -->
-  <h3 style="margin-top:25px; font-size:16px; color:#00ffcc; text-shadow:0 0 8px #00ffcc;">
+  <h3 style="margin-top:25px; font-size:16px; color:#bb86fc; text-shadow:0 0 8px #bb86fc;">
     ✨ Klik produk untuk lihat detail ✨
   </h3>
 
@@ -349,10 +378,10 @@
     btn.addEventListener("click", () => {
       if (music.paused) {
         music.play();
-        btn.textContent = "⏸ Pause Musik";
+        btn.textContent = "⏸  Pause Music"
       } else {
         music.pause();
-        btn.textContent = "▶ Play Musik";
+        btn.textContent = "▶ Play Music";
       }
     });
 
